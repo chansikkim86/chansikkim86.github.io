@@ -5,7 +5,7 @@ lang: ko-KR
 
 # linear-calendar-sync
 
-linear-calendar-sync는 Linear 이슈의 due date와 프로젝트의 기간을 구글 캘린더의 전용 캘린더 "Linear"에 하루 종일 event로 옮기고, Linear 쪽이 바뀌면 event를 맞춰 고치는 명령줄 도구다.
+linear-calendar-sync는 Linear 이슈의 due date는 구글 캘린더의 전용 캘린더 "Linear_Issue"에, 프로젝트의 기간은 "Linear_Project"에 하루 종일 event로 옮기고, Linear 쪽이 바뀌면 event를 맞춰 고치는 명령줄 도구다.
 
 개인정보처리방침: [https://chansikkim86.github.io/linear-calendar-sync/privacy.html](https://chansikkim86.github.io/linear-calendar-sync/privacy.html)
 
@@ -15,10 +15,10 @@ linear-calendar-sync는 Linear 이슈의 due date와 프로젝트의 기간을 �
 
 ## 하는 일
 
-- 처음 한 번 `setup`으로 구글 인증을 하고 "Linear" 캘린더를 만든다. 그 뒤로는 Windows 작업 스케줄러가 주기적으로 실행한다.
-- 실행마다 "Linear" 캘린더의 event 목록을 읽고, 대상 항목마다 event를 등록하거나 Linear에서 바뀐 필드(제목, 설명, 날짜)만 고친다.
+- 처음 한 번 `setup`으로 구글 인증을 하고 "Linear_Issue"·"Linear_Project" 두 캘린더를 만든다. 그 뒤로는 Windows 작업 스케줄러가 주기적으로 실행한다.
+- 실행마다 두 캘린더의 event 목록을 읽고, 대상 항목마다 그 종류의 캘린더(이슈는 "Linear_Issue", 프로젝트는 "Linear_Project")에 event를 등록하거나 Linear에서 바뀐 필드(제목, 설명, 날짜)만 고친다.
 - 동기화는 Linear → 구글 한 방향이다. Linear는 읽기만 하고 아무것도 쓰지 않는다.
-- event와 캘린더를 지우지 않는다. 사람이 "Linear" 캘린더에 직접 만든 event는 건드리지 않는다.
+- event와 캘린더를 지우지 않는다. 사람이 두 캘린더에 직접 만든 event는 건드리지 않는다.
 - 코드로만 동작하며 LLM을 쓰지 않는다.
 
 | | 이슈 | 프로젝트 |
