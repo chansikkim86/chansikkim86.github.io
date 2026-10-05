@@ -18,7 +18,7 @@ linear-calendar-sync는 Linear 이슈의 due date는 구글 캘린더의 전용 
 - 처음 한 번 `setup`으로 구글 인증을 하고 "Linear_Issue"·"Linear_Project" 두 캘린더를 만든다. 그 뒤로는 Windows 작업 스케줄러가 주기적으로 실행한다.
 - 실행마다 두 캘린더의 event 목록을 읽고, 대상 항목마다 그 종류의 캘린더(이슈는 "Linear_Issue", 프로젝트는 "Linear_Project")에 event를 등록하거나 Linear에서 바뀐 필드(제목, 설명, 날짜)만 고친다.
 - 동기화는 Linear → 구글 한 방향이다. Linear는 읽기만 하고 아무것도 쓰지 않는다.
-- event와 캘린더를 지우지 않는다. 사람이 두 캘린더에 직접 만든 event는 건드리지 않는다.
+- 이슈가 대상에서 벗어나면(상태가 `Triage`, `Backlog`, `Done`, `Canceled`, `Duplicate` 가운데 하나가 되거나, due date가 없어지거나, 보관되거나, 휴지통으로 가면) 다음 실행이 Linear에서 그 이슈를 다시 읽어 확인한 뒤 그 이슈의 "Linear_Issue" event를 지운다. 프로젝트 event와 캘린더는 지우지 않는다. 사람이 두 캘린더에 직접 만든 event는 건드리지 않는다.
 - 코드로만 동작하며 LLM을 쓰지 않는다.
 
 | | 이슈 | 프로젝트 |
